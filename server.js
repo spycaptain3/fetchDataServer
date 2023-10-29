@@ -2,9 +2,16 @@ const express = require('express');
 const app = express();
 const content = require('./config.js');
 const cors = require('cors')
-
+const path = require('path')
 app.use(express.json());
 app.use(cors())
+app.set('view engine','ejs')
+app.set('views',path.join(''))
+app.use(express.static(__dirname))
+
+app.get('/',(req,res)=>{
+   res.render('index')
+})
 
 app.post('/', async(req, resp) => {
 
